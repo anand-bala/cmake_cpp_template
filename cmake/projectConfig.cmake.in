@@ -1,0 +1,17 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/myprojectTargets.cmake")
+
+set(myproject_FULL_VERSION @myproject_FULL_VERSION@)
+
+set_and_check(
+  myproject_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_INCLUDEDIR@"
+)
+set_and_check(myproject_LIB_DIR "${PACKAGE_PREFIX_DIR}/@CMAKE_INSTALL_LIBDIR@")
+
+if(NOT myproject_FIND_QUIETLY)
+  message(
+    STATUS
+      "Found myproject: ${myproject_INCLUDE_DIR} (found version \"${myproject_VERSION}\" ${myproject_VERSION_TYPE})"
+  )
+endif()
